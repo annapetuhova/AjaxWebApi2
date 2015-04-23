@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-app="ordersApp" ng-controller="OrderListController">
+    <h4>Заказы</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Наименование
+                        </th>
+                        <th>
+                            Количество
+                        </th>
+                        <th>
+                            Адрес доставки
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="order in orders">
+                        <td ng-bind="order.title" />
+                        <td ng-bind="order.count" />
+                        <td ng-bind="order.address" />
+                        <td><a ng-click="deleteOrder(order.id, $index)" class="btn btn-warning btn-sm">Удалить</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+    <div>
+
+                <form ng-submit="addOrder()" style="border: 1px solid black,background:azure">
+                    <div id="title-group">
+                        <label>Название</label>
+                        <input type="text" name="title" ng-model="newOrder.title" class="form-control" />
+                    </div>
+
+                    <div id="count-group">
+                        <label>Количество</label>
+                        <input type="number" ng-model="newOrder.count" name="count" class="form-control" />
+                    </div>
+
+                    <div id="address-group">
+                        <label>Адрес доставки</label>
+                        <input type="text" ng-model="newOrder.address" name="address" class="form-control" />
+                    </div>
+                    <hr />
+                    <button type="submit" class="btn btn-success">
+                        Создать
+                    </button>
+                </form>
+
+</div>
+
+
+
+<script></script>
